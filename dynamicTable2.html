@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Dynamic Table </title>
+	<!-- <script src="jquery.js"> </script> -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+
+	<script>
+		function generateTable(rows,cols,servicesObj){
+			var selectorId = $(div).attr("id");
+			//alert(selectorId);
+			var table = $('<table/>').attr("border","1").addClass("main_table");
+			var service = servicesObj.service;
+			for(i=0;i<rows;i++){
+				var row = $('<tr/>');
+				for(j=0; j<cols ; j++){
+					if(j == 0){
+						var col = $(row).append('<td class="colRows">' + servicesObj[i] + '</td>');
+						$('#wrap_table').append($(table).append(col));
+					}
+					else{
+						var col = $(row).append('<td class="col"> <input type="checkbox"></td>');
+						$('#wrap_table').append($(table).append(col));
+					}
+				}
+				
+			}
+		}
+		
+		
+		$(document).ready(function(){
+			var servicesObj = {
+				0 : "Loyalty",
+				1 : "Reservation",
+				2 : "Location",
+				3 : "Module",
+				4 : "hello"
+				
+			}
+			var count = 0;
+			for(k in servicesObj){
+				if(servicesObj.hasOwnProperty(k)){
+				 ++count;
+				
+				}
+				
+			}
+			//alert(count);
+			generateTable(count,3,servicesObj);
+		});
+	
+	</script>
+	
+	<style>
+		.main_table{
+			border-collapse : collapse;
+			border-color : gray;
+			}
+			
+		.col{
+			
+			text-align : center;
+			padding : 0 25px;
+			}
+			
+		.colRows{
+			width : 55%;
+			text-align : center;
+			padding : 10px;
+			background-color : rgb(82,117,185);
+			color : white;
+			font-family : arial;
+		}
+		
+		tr:nth-child(even){
+			background-color : #D2D5D6;
+			}
+			
+		tr{
+			height : 50px;
+		}
+	
+	</style>
+</head>
+<body>
+	<p> Table creation </p>
+	<div id="wrap_table" width="50%">
+	
+	</div>
+	
+</body>
+</html>
