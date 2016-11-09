@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="./orderForm.js"></script>
+  </head>
+  
+  <body ng-app="orderForm">
+    <div ng-controller="OrderFormController">
+      <ul>
+         <li ng-repeat="service in orderServices">{{service.name}} <span> {{service.price}}</span></li> 
+      </ul>
+    </div>
+  </body>
+</html>
