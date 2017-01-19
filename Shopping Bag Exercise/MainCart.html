@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+        <script src="mainCart.js"></script>
+        <link rel="stylesheet" href="mainCart.css">
+    </head>
+    
+    <script id="shopping-cart-initial-template" type="text/x-handlebars-template">
+        {{#each productsInCart}}
+        <div class="row">
+                <div class="col-md-3">
+                    <img src="./assets/T{{p_id}}.jpg" alt="T-shirt{{p_id}}" />
+                </div>
+                <div class="col-md-4">
+                   <p>{{p_variation}}&nbsp;{{p_name}} </p>
+                    <p>Style #: {{p_style}}</p>
+                    <p>Color : {{p_selected_color.name}}</p>
+                    <p>EDIT  |  X REMOVE  | SAVE FOR LATER</p>
+                </div>
+                <div class="col-md-1">
+                    <p>{{p_selected_size.code}} </p>
+                </div>
+                <div class="col-md-2 quantity">
+                   <input type="text" value={{p_quantity}} data-id="product_quantity_{{p_id}}" class="product_quantity"/>
+                </div>
+                <div class="col-md-2 priceColumn">
+                   <span>{{c_currency}}&nbsp;</span> <span id="product_quantity_{{p_id}}" class="orig_price">{{p_originalprice}}</span>
+                </div>            
+            </div>
+        {{/each}}
+        <hr class="customHR"/>
+    </script>
+
+<!--Your new content will be displayed in here-->
+<div class="content-placeholder"></div>
+    <body>
+        <div class="container-fluid">
+            <div class="list-items">
+            <hr/>
+              <div class="row">
+                <div class="col-md-3">
+                    4 ITEMS  
+                </div>
+                <div class="col-md-4">
+                     
+                </div>
+                <div class="col-md-1">
+                    SIZE  
+                </div>
+                <div class="col-md-2">
+                   QTY
+                </div>
+                <div class="col-md-2">
+                   PRICE 
+                </div>
+                  
+                </div>  
+                <hr class="customHR"/>
+            </div>
+            
+            <!-- next part -->
+            <div class="row">
+                <div class="col-md-4">
+                    <p>Need help or have questions?</p>
+                    <p>Call customer service at</p>
+                    <p>1-800-555-5555</p>
+                    <br/>
+                    <a href="#">Chat with one of our Stylists</a>
+                    <p></p>
+                    <a href="#">See return and Exchange Policy</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            ENTER PROMOTION CODE OR GIFT CARD :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" value=""/>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button">APPLY</button>
+                        </div>
+                    </div>
+                    <hr class="customHR"/>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>SUBTOTAL:</p>
+                        </div>
+                        <div class="col-md-3" id="subTotal">
+                           <p> </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>PROMOTION CODE APPLIED:</p>
+                        </div>
+                        <div class="col-md-3" id="promoCode">
+                            <span>-</span><p></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>ESTIMATED SHIPPING *</p>
+                            <p>you qualify fro free shipping beacuse your order is above $50.00</p>
+                        </div>
+                        <div class="col-md-3">
+                          <p> FREE </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p><b>ESTIMATED TOTAL *</b></p>
+                            <span> Tax will be applied during checkout</span>
+                           
+                        </div>
+                        <div class="col-md-3" id="estimatedTotal">
+                          <span>$</span> <span id="total"></span>
+                        </div>
+                    </div>
+                 <hr class="customHR"/>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <a href="#"> CONTINUE SHOPPING</a>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" type="button">CHECKOUT</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    
+    </body>
+</html>
